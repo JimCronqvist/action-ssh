@@ -1,5 +1,5 @@
 name: "SSH Execute Commands"
-description: "Execute commands on one ore more hosts with a private key as auth"
+description: "Run commands via SSH on remote servers. Multiple hosts, Env vars, private key auth, multiple commands."
 author: "JimCronqvist"
 inputs:
   command:
