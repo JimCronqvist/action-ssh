@@ -2,8 +2,8 @@
 
 set -eu
 
-BLUE=$([ -t 1 ] && tput setaf 6 || echo '')
-NORMAL=$([ -t 1 ] && tput sgr0 || echo '')
+BLUE='\033[0;34m'
+NORMAL='\033[0m'
 
 
 mkdir -p ~/.ssh/
