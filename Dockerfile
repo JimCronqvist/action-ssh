@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-RUN apk --update add --no-cache openssh-client bash
+RUN apk --update add --no-cache openssh-client coreutils bash
 
 COPY LICENSE README.md /
 
