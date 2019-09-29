@@ -11,8 +11,9 @@ inputs:
   privateKey:
     description: "The private key (id_rsa) content for authenticating to the SSH server(s). Recommended to store it as a GitHub Secret."
     required: true
-  envs:
-    description: "Pass environment variables to the commands."
+  debug:
+    description: "Used to view all environment variables in the logs, please note that this could expose sensitive data."
+    default: false
 runs:
   using: "docker"
   image: "Dockerfile"

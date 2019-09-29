@@ -1,6 +1,14 @@
 # Github Action - SSH Execute Commands
 
-GitHub Action (yml) to execute commands on one or more remote servers using a private key to authenticate.
+GitHub Action (yml) to execute SSH commands on remote server(s).
+
+**Supports:** 
+- Multiple hosts
+- Environment variables
+- Multiple commands
+- Private key authentication
+
+*Password authentication is generally seen as unsafe and is therefore not supported.*
 
 ## Example usage
 
@@ -21,7 +29,7 @@ env:
 with:
   hosts: 'user@domain.com user@domain2.com:2222'
   privateKey: ${{ secrets.PRIVATE_KEY }}
-  envs: NAME
+  debug: false
   command: |
     ls -lah
     echo "I am $NAME"
@@ -41,7 +49,7 @@ Example: "user@mydomain.com:22 user@otherdomain.com:2222"
 **`privateKey`**: The private key (id_rsa) content for authenticating to the SSH server(s). 
 Recommended to store it as a GitHub Secret.
 
-**`envs`**: Pass environment variables to the commands.
+**`debug`**: Used to view all environment variables in the logs, please note that this could expose sensitive data. Default as `false`
 
 ## Outputs
 
