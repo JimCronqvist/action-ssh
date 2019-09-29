@@ -1,4 +1,4 @@
-# Github Action - SSH Execute Commands
+# GitHub Action - SSH Execute Commands
 
 GitHub Action (yml) to execute SSH commands on remote server(s).
 
