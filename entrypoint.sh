@@ -11,8 +11,10 @@ echo "${INPUT_COMMAND}" > ~/script.sh
 echo "Run on: ${INPUT_HOSTS}"
 echo "Commands:"
 cat ~/script.sh
+echo ""
 
-for host in "${INPUT_HOSTS}"; do
+for host in ${INPUT_HOSTS}; do
+  echo "Connecting to ${host}..."
   sh -c "ssh -t -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no '${host}' < ~/script.sh"
 done
 
