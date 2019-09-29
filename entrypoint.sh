@@ -22,7 +22,7 @@ echo "${INPUT_COMMAND}" >> ~/script.sh
 echo ""
 echo -e "${BLUE}Run on:${NORMAL} ${INPUT_HOSTS}"
 echo -e "${BLUE}Commands:${NORMAL}"
-cat ~/script.sh
+cat ~/script.sh | sed '1,/^# Commands:$/d'
 echo ""
 
 for host in ${INPUT_HOSTS}; do
