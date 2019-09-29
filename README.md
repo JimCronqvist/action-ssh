@@ -15,7 +15,7 @@ GitHub Action (yml) to execute SSH commands on remote server(s).
 **Basic Example** 
 ```yml
 - name: Execute SSH commmands on remote server
-  uses: JimCronqvist/action-ssh@release
+  uses: JimCronqvist/action-ssh@master
   with:
     hosts: 'user@domain.com'
     privateKey: ${{ secrets.PRIVATE_KEY }}
@@ -25,7 +25,7 @@ GitHub Action (yml) to execute SSH commands on remote server(s).
 **Advanced Example - envs, multiple hosts, multiple commands**
 ```yml
 - name: Execute SSH commmands on remote server
-  uses: JimCronqvist/action-ssh@release
+  uses: JimCronqvist/action-ssh@master
   env:
     NAME: "Root"
   with:
