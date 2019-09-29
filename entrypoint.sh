@@ -18,9 +18,14 @@ echo -e "${BLUE}Commands:${NORMAL}"
 cat ~/script.sh
 echo ""
 
+#for INPUT_ENVS
+
+env
+
 for host in ${INPUT_HOSTS}; do
   echo -e "${BLUE}Connecting to ${host}...${NORMAL}"
   sh -c "ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no '${host}' < ~/script.sh"
+  echo ""
 done
 
 echo ""

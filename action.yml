@@ -16,11 +16,6 @@ inputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  args:
-    - ${{ inputs.command }}
-    #- ${{ inputs.hosts }}
-    #- ${{ inputs.privateKey }}
-    #- ${{ inputs.envs }}
 branding:
   color: "gray-dark"
   icon: "terminal"
