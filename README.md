@@ -14,25 +14,27 @@ GitHub Action (yml) to execute SSH commands on remote server(s).
 
 **Basic Example** 
 ```yml
-uses: JimCronqvist/action-ssh@master
-with:
-  hosts: 'user@domain.com'
-  privateKey: ${{ secrets.PRIVATE_KEY }}
-  command: ls -lah
+- name: Execute SSH commmands on remote server
+  uses: JimCronqvist/action-ssh@release
+  with:
+    hosts: 'user@domain.com'
+    privateKey: ${{ secrets.PRIVATE_KEY }}
+    command: ls -lah
 ```
 
 **Advanced Example - envs, multiple hosts, multiple commands**
 ```yml
-uses: JimCronqvist/action-ssh@master
-env:
-  NAME: "Root"
-with:
-  hosts: 'user@domain.com user@domain2.com:2222'
-  privateKey: ${{ secrets.PRIVATE_KEY }}
-  debug: false
-  command: |
-    ls -lah
-    echo "I am $NAME"
+- name: Execute SSH commmands on remote server
+  uses: JimCronqvist/action-ssh@release
+  env:
+    NAME: "Root"
+  with:
+    hosts: 'user@domain.com user@domain2.com:2222'
+    privateKey: ${{ secrets.PRIVATE_KEY }}
+    debug: false
+    command: |
+      ls -lah
+      echo "I am $NAME"
 ```
 
 *Create your secrets here: `https://github.com/USERNAME/REPO/settings/secrets`*
@@ -54,3 +56,8 @@ Recommended to store it as a GitHub Secret.
 ## Outputs
 
 The output from the commands ran on the remote server(s).
+
+## External links
+
+To set up ssh keys, please see the following guide:
+*https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1804*
