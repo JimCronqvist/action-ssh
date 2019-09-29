@@ -12,7 +12,7 @@ echo "${INPUT_PRIVATEKEY}" > ~/.ssh/id_rsa
 
 install -m 700 /dev/null ~/script.sh
 echo '# Environment variables:' >> ~/script.sh
-env -0 | while read -r -d '' line; do
+env | tr '\n' '\0' | while read -r -d '' line; do
     echo "${line}" | grep -v -Eq '^(HOSTNAME=|HOME=|INPUT_)' && printf '%s\n' "${line}" >> ~/script.sh
 done
 echo '' >> ~/script.sh
