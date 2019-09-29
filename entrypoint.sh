@@ -9,18 +9,19 @@ NORMAL='\033[0m'
 mkdir -p ~/.ssh/
 install -m 600 /dev/null ~/.ssh/id_rsa
 echo "${INPUT_PRIVATEKEY}" > ~/.ssh/id_rsa
+
 install -m 700 /dev/null ~/script.sh
-echo "${INPUT_COMMAND}" > ~/script.sh
+echo '# Environment variables:' >> ~/script.sh
+env | grep -v '^HOSTNAME=' | grep -v '^HOME=' | grep -v '^INPUT_' >> ~/script.sh
+echo '' >> ~/script.sh
+echo '# Commands:' >> ~/script.sh
+echo "${INPUT_COMMAND}" >> ~/script.sh
 
 echo ""
 echo -e "${BLUE}Run on:${NORMAL} ${INPUT_HOSTS}"
 echo -e "${BLUE}Commands:${NORMAL}"
 cat ~/script.sh
 echo ""
-
-#for INPUT_ENVS
-
-env
 
 for host in ${INPUT_HOSTS}; do
   echo -e "${BLUE}Connecting to ${host}...${NORMAL}"
