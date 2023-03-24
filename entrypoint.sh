@@ -31,9 +31,10 @@ fi
 echo ""
 
 for host in ${INPUT_HOSTS}; do
-  echo -e "${BLUE}Connecting to ${host}...${NORMAL}"
-  sh -c "ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no '${host}' < ~/script.sh"
-  echo ""
+    echo -e "${BLUE}Connecting to ${host}...${NORMAL}"
+    PORT=$(echo "$host" | cut -s -d':' -f2 | sed 's/[^0-9]//g')
+    sh -c "ssh -q -t -i ~/.ssh/id_rsa -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no '${host}' -p ${PORT:-22} < ~/script.sh"
+    echo ""
 done
 
 echo ""
